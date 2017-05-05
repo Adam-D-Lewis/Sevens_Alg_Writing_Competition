@@ -19,6 +19,10 @@ The partial game state (pgs or partial_gs) is a dictionary with the following ke
     pgs['playable_cards'] will return a list of the cards in your hand which are playable on that turn.  If the length of this list is 1, you should probably just return that card instead of running through your entire algorithm.
     pgs['table'] returns a list of length 4 with each element consisting of a list of cards of a certain suit that have been played, and are thus currently on the table. To see what the lowest and highest card of the diamond suit you could enter the following pgs['table'][1][0] (lowest card) & and pgs['table'][1][-1] (highest card).
 
+Modules Needed
+--------------
+The only module that I use that isn't part of the standard library is matplotlib.  I just plot the results in main.py.  If you don't want to install matplotlib then you can just comment out those lines.
+
 Cards
 ------
 Each card is a named tuple.  They were made to remind you of how you might say the name of the card.  For example, the 4 of clubs would be given by [4, 'clubs'].  If a card were stored in the variable "card" then you could access its value and suit in the following manner:  card.value (or card[0]) and card.suit (or card[1]).  The card values go from 1-13 with 13 representing the King in conventional face cards, 12 representing the Queen, 11 the Jack, and 1 the Ace.
