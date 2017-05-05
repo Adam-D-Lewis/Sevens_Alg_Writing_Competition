@@ -10,7 +10,7 @@ save results
 
 results that I want to record include the number of games and the win percentage with the human strategy
 '''
-num_games = 100
+num_games = 10000
 
 #--------------------------------------------------------------------------------
 results = {'human_win_percentage': [0]}
