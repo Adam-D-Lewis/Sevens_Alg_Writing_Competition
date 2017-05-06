@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from single_game import single_game
 import matplotlib.pyplot as plt
 '''main.py
