@@ -4,12 +4,10 @@ from itertools import product
 import random
 from win_condition import win_condition
 from is_valid_play import is_valid_play
-from human_turn import human_turn
-from ai_turn import ai_turn
 import copy
 from return_suits import return_suits
 
-def single_game():
+def single_game(human_turn, ai_turn):
     # I use this function to deal out the cards later.
     def grouper(iterable, n, fillvalue=None):
         """Collect data into fixed-length chunks or blocks"""
