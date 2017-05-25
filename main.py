@@ -4,8 +4,11 @@ from single_game import single_game
 import matplotlib.pyplot as plt
 from time import time
 
+from human_turn import human_turn
+from ai_turn import ai_turn
+
 def run_single_game():
-    return single_game()
+    return single_game(human_turn, ai_turn)
 
 run_in_parallel = 1
 
