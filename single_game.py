@@ -9,7 +9,7 @@ from ai_turn import ai_turn
 import copy
 from return_suits import return_suits
 
-def single_game(results):
+def single_game():
     # I use this function to deal out the cards later.
     def grouper(iterable, n, fillvalue=None):
         """Collect data into fixed-length chunks or blocks"""
@@ -64,13 +64,28 @@ def single_game(results):
         # determine which of the current player's cards are playable
         current_player_hand = gs['player_hands'][gs['player_turn']-1]
         playable_cards = []
+        playable_cards_copy = []
         for card in current_player_hand:
             if is_valid_play(card, gs):
                 playable_cards.append(card)
+                playable_cards_copy.append(card)
 
         # if the player has at least one playable card, then create the partial game state to pass to the player algorithms (partial game state because you don't get to know what cards the other players are holding).  If the player has 0 playable cards, then just have them return a (None, None) card which represents them passing.
         if len(playable_cards) is not 0:
-            partial_gs = {'cards_played': copy.deepcopy(gs['cards_played']), 'player_turn': copy.deepcopy(gs['player_turn']), 'player_hand': copy.deepcopy(current_player_hand), 'playable_cards': copy.deepcopy(playable_cards), 'table': copy.deepcopy(table)}
+            if not 'partial_gs' in locals():
+                partial_gs = {'cards_played': copy.deepcopy(gs['cards_played']), 'player_turn': copy.deepcopy(gs['player_turn']), 'player_hand': copy.deepcopy(current_player_hand), 'playable_cards': copy.deepcopy(playable_cards), 'table': copy.deepcopy(table)}
+                pgs_hands = copy.deepcopy(gs['player_hands'])
+                partial_gs_copy = copy.deepcopy(partial_gs)
+
+            #update partial_gs and its copy
+            partial_gs_copy['player_hand'] = gs['player_hands'][gs['player_turn']-1]
+            partial_gs_copy['playable_cards'] = playable_cards_copy
+            partial_gs['player_hand'] = pgs_hands[gs['player_turn']-1]
+            partial_gs['playable_cards'] = playable_cards
+
+            if partial_gs != partial_gs_copy:
+                print('They tried to cheat!')
+                partial_gs = {'cards_played': copy.deepcopy(gs['cards_played']), 'player_turn': copy.deepcopy(gs['player_turn']), 'player_hand': copy.deepcopy(current_player_hand), 'playable_cards': copy.deepcopy(playable_cards), 'table': copy.deepcopy(table)}
 
             # ask which card to play from computer algorithm (or human)
             # if they try to play an unplayable card, then just play the first appropriate card, if none are available then return None
@@ -81,10 +96,12 @@ def single_game(results):
 
             # if they try to submit an invalid card, then just play the first playable card
             if not is_valid_play(card_played, gs):
-                card_played = playable_cards[0]
+                card_played = playable_cards_copy[0]
 
             # remove the card from their hand
             gs['player_hands'][gs['player_turn']-1].remove(card_played)
+            pgs_hands[gs['player_turn']-1].remove(card_played)
+
 
             # place the card on the table in the appropriate position
             suit_index = suits.index(card_played[1])
@@ -103,8 +120,4 @@ def single_game(results):
 
     # determine if the human won
     human_won = gs['player_turn'] is human_player_turn_order
-
-    # update the human win percentage(hwp)
-    hwp = results['human_win_percentage'][-1]
-    N = len(results['human_win_percentage'])-1
-    results['human_win_percentage'].append((hwp*N + human_won)/(N+1))
+    return human_won
