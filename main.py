@@ -1,16 +1,8 @@
+#!/usr/bin/env python3
+
 from single_game import single_game
 import matplotlib.pyplot as plt
 from time import time
-'''main.py
-load results
-
-for i in range(num_matches):
-    single_game(results)
-
-save results
-
-results that I want to record include the number of games and the win percentage with the human strategy
-'''
 
 def run_single_game():
     return single_game()
