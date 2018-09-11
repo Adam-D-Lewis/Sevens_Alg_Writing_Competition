@@ -52,7 +52,7 @@ is_logic_valid_play - checks if a card is valid to play based on the game logic 
 
 return_suits - returns the suit order in a list ['clubs', 'diamonds', 'hearts', 'spades'] (I'm using it kind of like a global variable)
 
-win_condition - returns True if any player has 0 cards in his hand.
+win_condition - returns True if any player has 0 cards in his or her hand.
 
 PyCharm Installation
 ---------------------
