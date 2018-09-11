@@ -1,6 +1,6 @@
 # Sevens Card Game Algorithm Competition
 ------------------------------------------------------------
-We'll be competing to see who can get the highest win percentage after 1,000,000 games.  The computer players will select one of their playable cards AT RANDOM.  This way everyone can compete.
+This project was a competition amongst my friends and me to see who could write an algorithm to produce the highest win percentage in the card game Sevens.  The algorithm is playing vs. 3 AI players using a simple random card selection strategy.  
 
 ## Getting Started
 ### How to Play Sevens
