@@ -1,6 +1,6 @@
 Sevens Algorithm
 ------------------------------------------------------------
-We'll be competing to see who can get the highest win percentage after 1000 games (or maybe more if I feel like it).  The computer players will select one of their playable cards AT RANDOM.  This way everyone can compete.
+We'll be competing to see who can get the highest win percentage after 1,000,000 games.  The computer players will select one of their playable cards AT RANDOM.  This way everyone can compete.
 
 How to Play Sevens
 ---------------------------------
