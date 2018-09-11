@@ -3,7 +3,7 @@
 We'll be competing to see who can get the highest win percentage after 1,000,000 games.  The computer players will select one of their playable cards AT RANDOM.  This way everyone can compete.
 
 ## Getting Started
-How to Play Sevens
+### How to Play Sevens
 ---------------------------------
 Many of you have never played sevens, but rest assured it is a very simple game and you will get the hang of it in no time.  A good explanation of how to play can be found at "http://www.classicgamesandpuzzles.com/Sevens.html" but I suggest actually playing a few rounds to get a good sense of strategies you might want to try.
 
@@ -24,11 +24,12 @@ The partial game state (pgs or partial_gs) is a dictionary with the following ke
 --------------
 The only module that I use that isn't part of the standard library is matplotlib.  I just plot the results in main.py.  If you don't want to install matplotlib then you can just comment out those lines.
 
-Cards
+## Implementation Details
+### Cards
 ------
 Each card is a named tuple.  They were made to remind you of how you might say the name of the card.  For example, the 4 of clubs would be given by [4, 'clubs'].  If a card were stored in the variable "card" then you could access its value and suit in the following manner:  card.value (or card[0]) and card.suit (or card[1]).  The card values go from 1-13 with 13 representing the King in conventional face cards, 12 representing the Queen, 11 the Jack, and 1 the Ace.
 
-Card Sorting (Suit Order)
+### Card Sorting (Suit Order)
 -------------------------
 Cards are sorted by suit and then subsorted by ascending value within the suit.  The suit order from first to last is clubs, diamonds, hearts, spades.
 
