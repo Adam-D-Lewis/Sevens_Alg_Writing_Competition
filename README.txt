@@ -1,14 +1,15 @@
-Sevens Algorithm
+# Sevens Card Game Algorithm Competition
 ------------------------------------------------------------
 We'll be competing to see who can get the highest win percentage after 1,000,000 games.  The computer players will select one of their playable cards AT RANDOM.  This way everyone can compete.
 
+## Getting Started
 How to Play Sevens
 ---------------------------------
 Many of you have never played sevens, but rest assured it is a very simple game and you will get the hang of it in no time.  A good explanation of how to play can be found at "http://www.classicgamesandpuzzles.com/Sevens.html" but I suggest actually playing a few rounds to get a good sense of strategies you might want to try.
 
 You can download a sevens game for android at "https://play.google.com/store/apps/details?id=com.game.sevencentre".  You can download a sevens game for iOS at "https://itunes.apple.com/us/app/sevens-card-game/id926091764?mt=8"  Note that some versions of the game allow you to pass 3 times even if you could play.  In the version of the game that we'll play, you must play if you have a playable card on your turn.
 
-Instructions for Algorithm Writers
+### Instructions for Algorithm Writers
 ------------------------------------
 Just write a new human_turn.py file that takes the partial game state as an input and returns one of the playable cards.
 
@@ -19,7 +20,7 @@ The partial game state (pgs or partial_gs) is a dictionary with the following ke
     pgs['playable_cards'] will return a list of the cards in your hand which are playable on that turn.  If the length of this list is 1, you should probably just return that card instead of running through your entire algorithm.
     pgs['table'] returns a list of length 4 with each element consisting of a list of cards of a certain suit that have been played, and are thus currently on the table. To see what the lowest and highest card of the diamond suit you could enter the following pgs['table'][1][0] (lowest card) & and pgs['table'][1][-1] (highest card).
 
-Modules Needed
+### Prerequisites
 --------------
 The only module that I use that isn't part of the standard library is matplotlib.  I just plot the results in main.py.  If you don't want to install matplotlib then you can just comment out those lines.
 
@@ -31,7 +32,9 @@ Card Sorting (Suit Order)
 -------------------------
 Cards are sorted by suit and then subsorted by ascending value within the suit.  The suit order from first to last is clubs, diamonds, hearts, spades.
 
-This file will detail what each file in the code does.
+## Code Explanation 
+###Main Code Files
+This section will detail what each file in the code does.
 
 main.py
 --------
@@ -41,8 +44,7 @@ single_game.py
 --------------
 The bulk of the game mechanics are in this file.  The comments in the file are pretty good so walk through it for additional details.
 
-Files which might be useful when creating your player algorithm
----------------------------------------------------------------
+### Files which might be useful when creating your player algorithm
 ---------------------------------------------------------------
 ai_turn - this is the ai algorithm that you'll be competing against.  It just randomly selects and plays a playable card.
 
@@ -52,8 +54,8 @@ is_logic_valid_play - checks if a card is valid to play based on the game logic 
 
 return_suits - returns the suit order in a list ['clubs', 'diamonds', 'hearts', 'spades'] (I'm using it kind of like a global variable)
 
-win_condition - returns True if any player has 0 cards in his or her hand.
+win_condition - function which returns True if any player has 0 cards in his or her hand.
 
-PyCharm Installation
+## PyCharm Installation
 ---------------------
 If you want an IDE for Python and don't have one, I've found PyCharm Community Edition to be easy to install, free, and a good IDE for python.
