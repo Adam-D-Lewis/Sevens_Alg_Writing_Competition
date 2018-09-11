@@ -56,8 +56,4 @@ win_condition - returns True if any player has 0 cards in his or her hand.
 
 PyCharm Installation
 ---------------------
-If you want an IDE for Python and don't have one, I found PyCharm Community Edition to be easy to install, free, and a good IDE for python.
-
-TimeTable
-----------
-I'll give everyone 2 weeks (so until May 20) to work on this.  Whoever gets the highest win percentage after 1000 games (I'll use more games if needed) wins.  You can self report, but I'll test the algorithm of the person with the highest claim.  I'll create a facebook group where people can comment on their progress if they want.
+If you want an IDE for Python and don't have one, I've found PyCharm Community Edition to be easy to install, free, and a good IDE for python.
