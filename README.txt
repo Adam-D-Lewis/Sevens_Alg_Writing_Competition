@@ -15,7 +15,7 @@ Just write a new human_turn.py file that takes the partial game state as an inpu
 The partial game state (pgs or partial_gs) is a dictionary with the following keys: cards_played, player_turn, player_hand, playable_cards, and table.
     The cards_played value is a n by 4 numpy array with each row corresponding to players 1-4 each playing a card or passing.  For example to see what the 1st card played by the 4th player, you could enter the following, pgs['cards_played'][0][3].
     The player_turn is just the player number of the current player (1 indexed).  For example, if you are the 4th player to play, then in your player algorithm pgs['player_turn']  would return 4.
-    pgs['player_hand'] returns a list of every card currently in your hand sorted by suit and subsorted by number.  For example, pgs['player_hand'][0] might return [2, 'clubs']
+    pgs['player_hand'] returns a list of every card currently in your hand sorted by suit and subsorted by number.  For example, pgs['player_hand'][0] might return [[2, 'clubs'], [8, 'clubs']]
     pgs['playable_cards'] will return a list of the cards in your hand which are playable on that turn.  If the length of this list is 1, you should probably just return that card instead of running through your entire algorithm.
     pgs['table'] returns a list of length 4 with each element consisting of a list of cards of a certain suit that have been played, and are thus currently on the table. To see what the lowest and highest card of the diamond suit you could enter the following pgs['table'][1][0] (lowest card) & and pgs['table'][1][-1] (highest card).
 
