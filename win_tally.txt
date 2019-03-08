@@ -1,0 +1,6 @@
+[WIN_TALLY]
+total_wins = 258889.0
+total_games_played = 502240.0
+latest_win_percentage = 0.515468700223001
+penultimate_win_percentage = 0.515507541297582
+
